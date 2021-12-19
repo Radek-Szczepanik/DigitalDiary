@@ -2,9 +2,9 @@
 {
     public interface IStudent
     {
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        string Name { get; set; }
         void AddGrade(double grade);
+        void AddStudent();
         void RemoveGrade();
         Statistics GetStatistics();
     }

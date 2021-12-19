@@ -5,14 +5,34 @@ namespace DigitalDiary
 {
     public class SaveGradesToFile : StudentBase
     {
+        public override void AddStudent()
+        {
+            Console.WriteLine("Enter student name");
+
+            var name = Console.ReadLine();
+
+            if (string.IsNullOrEmpty(name))
+            {
+                throw new NullReferenceException("Name can not be empty");
+            }
+            else
+            {
+                Name = name;
+            }
+        }
+
         public override void AddGrade(double grade)
         {
-            if (grade > 1 && grade <= 6)
+            if (grade >= 1 && grade <= 6)
             {
-                using (var writer = File.AppendText($"{FirstName}_{LastName}.txt"))
+                using (var writeGrades = File.AppendText($"{Name}.txt"))
                 {
-                    writer.Write(grade);
+                    writeGrades.WriteLine(grade);
                 }
+            }
+            else
+            {
+                throw new ArgumentException();
             }
         }
 
@@ -25,7 +45,7 @@ namespace DigitalDiary
         {
             var statistics = new Statistics();
 
-            using (var reader = File.OpenText($"{FirstName}_{LastName}.txt"))
+            using (var reader = File.OpenText($"{Name}.txt"))
             {
                 var line = reader.ReadLine();
 
