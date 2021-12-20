@@ -11,8 +11,8 @@ namespace DigitalDiary
 
         public Statistics()
         {
-            Min = double.MinValue;
-            Max = double.MaxValue;
+            Min = double.MaxValue;
+            Max = double.MinValue;
             Count = 0;
             Sum = 0.0;
         }
@@ -28,9 +28,16 @@ namespace DigitalDiary
         public void Add(double number)
         {
             Sum += number;
-            Count++;
-            Min = Math.Min(Max, number);
-            Max = Math.Max(Min, number);
+            Count += 1;
+            Min = Math.Min(number, Min);
+            Max = Math.Max(number, Max);
+        }
+
+        public void ShowStatistics(Statistics statistics)
+        {
+            Console.WriteLine($"The highest grade is {statistics.Max}");
+            Console.WriteLine($"The lowest grade is {statistics.Min}");
+            Console.WriteLine($"The average grade is {statistics.Average:N2}");
         }
     }
 }

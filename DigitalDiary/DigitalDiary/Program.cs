@@ -7,6 +7,7 @@ namespace DigitalDiary
         static void Main(string[] args)
         {
             var saveGrades = new SaveGradesToFile();
+            var statistics = new Statistics();
 
             while (string.IsNullOrEmpty(saveGrades.Name))
             {
@@ -23,6 +24,8 @@ namespace DigitalDiary
             }
             
             EnterGrade(saveGrades);
+            statistics.ShowStatistics(saveGrades.GetStatistics());
+
         }
 
         private static void EnterGrade(IStudent student)
