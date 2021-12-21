@@ -6,7 +6,7 @@ namespace DigitalDiary
     {
         static void Main(string[] args)
         {
-            var saveGrades = new SaveGradesInMemory();
+            var saveGrades = new SaveGradesToFile();
             var statistics = new Statistics();
 
             while (string.IsNullOrEmpty(saveGrades.Name))

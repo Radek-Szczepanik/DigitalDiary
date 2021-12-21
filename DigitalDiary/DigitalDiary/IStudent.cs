@@ -1,4 +1,6 @@
-﻿namespace DigitalDiary
+﻿
+
+namespace DigitalDiary
 {
     public interface IStudent
     {
@@ -7,5 +9,7 @@
         void AddStudent();
         void RemoveGrade();
         Statistics GetStatistics();
+        
+        
     }
 }

@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
+
 namespace DigitalDiary
 {
     public class SaveGradesInMemory : StudentBase
     {
         public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>();
+
+        
 
         public override void AddStudent()
         {

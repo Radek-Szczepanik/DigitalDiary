@@ -5,6 +5,8 @@ namespace DigitalDiary
 {
     public class SaveGradesToFile : StudentBase
     {
+        // const string studentGrades = "C:\\";
+
         public override void AddStudent()
         {
             Console.WriteLine("Enter student name");
@@ -26,8 +28,10 @@ namespace DigitalDiary
             if (grade >= 1 && grade <= 6)
             {
                 using (var writeGrades = File.AppendText($"{Name}.txt"))
+                using (var dateTimeGrades = File.AppendText("audit.txt"))
                 {
                     writeGrades.WriteLine(grade);
+                    dateTimeGrades.WriteLine($"{grade} - {DateTime.UtcNow}");
                 }
             }
             else
