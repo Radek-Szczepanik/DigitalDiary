@@ -6,9 +6,11 @@ namespace DigitalDiary
 {
     public class SaveGradesInMemory : StudentBase
     {
-        public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>();
+        public delegate void GradeAddedDelegate(object sender, EventArgs args);
 
-        
+        public event GradeAddedDelegate GradeAdded;
+
+        public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>();
 
         public override void AddStudent()
         {
@@ -25,7 +27,6 @@ namespace DigitalDiary
                 studentGrades.Add(name, new List<double>());
                 Name = name;
             }
-
         }
 
         public override void AddGrade(double grade)
@@ -33,6 +34,9 @@ namespace DigitalDiary
             if (grade >= 1 && grade <= 6)
             {
                 studentGrades[Name].Add(grade);
+
+                if(GradeAdded != null)
+                    GradeAdded(this, new EventArgs());
             }
             else
             {

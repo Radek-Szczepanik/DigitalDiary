@@ -5,8 +5,6 @@ namespace DigitalDiary
 {
     public class SaveGradesToFile : StudentBase
     {
-        // const string studentGrades = "C:\\";
-
         public override void AddStudent()
         {
             Console.WriteLine("Enter student name");

@@ -6,7 +6,8 @@ namespace DigitalDiary
     {
         static void Main(string[] args)
         {
-            var saveGrades = new SaveGradesToFile();
+            var saveGrades = new SaveGradesInMemory();
+            saveGrades.GradeAdded += OnGradeAdded;
             var statistics = new Statistics();
 
             while (string.IsNullOrEmpty(saveGrades.Name))
@@ -26,6 +27,11 @@ namespace DigitalDiary
             EnterGrade(saveGrades);
             statistics.ShowStatistics(saveGrades.GetStatistics());
 
+        }
+
+        private static void OnGradeAdded(object sender, EventArgs args)
+        {
+            Console.WriteLine("New grade is added");
         }
 
         private static void EnterGrade(IStudent student)
