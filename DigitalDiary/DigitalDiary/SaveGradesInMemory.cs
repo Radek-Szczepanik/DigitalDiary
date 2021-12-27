@@ -4,13 +4,13 @@ using System.Collections.Generic;
 
 namespace DigitalDiary
 {
+    public delegate void GradeAddedDelegate(object sender, EventArgs args);
+
     public class SaveGradesInMemory : StudentBase
     {
-        public delegate void GradeAddedDelegate(object sender, EventArgs args);
-
-        public event GradeAddedDelegate GradeAdded;
-
         public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>();
+
+        public new event GradeAddedDelegate GradeAdded;
 
         public override void AddStudent()
         {
@@ -54,11 +54,6 @@ namespace DigitalDiary
             }
 
             return result;
-        }
-
-        public override void RemoveGrade()
-        {
-            throw new System.NotImplementedException();
         }
     }
 }

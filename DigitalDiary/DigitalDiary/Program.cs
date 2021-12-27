@@ -6,7 +6,7 @@ namespace DigitalDiary
     {
         static void Main(string[] args)
         {
-            var saveGrades = new SaveGradesInMemory();
+            var saveGrades = new SaveGradesToFile();
             saveGrades.GradeAdded += OnGradeAdded;
             var statistics = new Statistics();
 
@@ -15,6 +15,8 @@ namespace DigitalDiary
                 try
                 {
                     saveGrades.AddStudent();
+                    Console.WriteLine("Enter grade");
+                    Console.WriteLine("Press S to show statistics");
                 }
 
                 catch (NullReferenceException ex)
@@ -26,7 +28,6 @@ namespace DigitalDiary
             
             EnterGrade(saveGrades);
             statistics.ShowStatistics(saveGrades.GetStatistics());
-
         }
 
         private static void OnGradeAdded(object sender, EventArgs args)
@@ -40,7 +41,7 @@ namespace DigitalDiary
             {
                 var input = Console.ReadLine();
 
-                if (input == "q")
+                if (input == "s")
                 {
                     break;
                 }

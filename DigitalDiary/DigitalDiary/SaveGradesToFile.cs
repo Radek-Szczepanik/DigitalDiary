@@ -5,6 +5,7 @@ namespace DigitalDiary
 {
     public class SaveGradesToFile : StudentBase
     {
+        public new event GradeAddedDelegate GradeAdded;
         public override void AddStudent()
         {
             Console.WriteLine("Enter student name");
@@ -26,21 +27,19 @@ namespace DigitalDiary
             if (grade >= 1 && grade <= 6)
             {
                 using (var writeGrades = File.AppendText($"{Name}.txt"))
-                using (var dateTimeGrades = File.AppendText("audit.txt"))
+                using (var dateTimeGrades = File.AppendText($"{Name}.audit.txt"))
                 {
                     writeGrades.WriteLine(grade);
                     dateTimeGrades.WriteLine($"{grade} - {DateTime.UtcNow}");
+
+                    if (GradeAdded != null)
+                        GradeAdded(this, new EventArgs());
                 }
             }
             else
             {
                 throw new ArgumentException();
             }
-        }
-
-        public override void RemoveGrade()
-        {
-            throw new NotImplementedException();
         }
 
         public override Statistics GetStatistics()

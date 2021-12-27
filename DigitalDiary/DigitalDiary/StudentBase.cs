@@ -1,4 +1,4 @@
-﻿
+﻿using static DigitalDiary.SaveGradesInMemory;
 
 namespace DigitalDiary
 {
@@ -8,11 +8,10 @@ namespace DigitalDiary
 
         public StudentBase() { }
 
-       
+        public event GradeAddedDelegate GradeAdded;
 
         public abstract void AddStudent();
         public abstract void AddGrade(double grade);
-        public abstract void RemoveGrade();
 
         public abstract Statistics GetStatistics();
     }
