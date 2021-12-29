@@ -8,7 +8,10 @@ namespace DigitalDiary
 
     public class SaveGradesInMemory : StudentBase
     {
-        public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>();
+        public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>()
+        {
+            {"Radek", new List<double>() { } }
+        };
 
         public new event GradeAddedDelegate GradeAdded;
 

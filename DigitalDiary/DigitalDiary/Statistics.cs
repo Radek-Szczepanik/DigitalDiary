@@ -4,10 +4,10 @@ namespace DigitalDiary
 {
     public class Statistics
     {
-        private double Min;
-        private double Max;
-        private double Sum;
-        private int Count;
+        public double Min;
+        public double Max;
+        public double Sum;
+        public int Count;
 
         public Statistics()
         {

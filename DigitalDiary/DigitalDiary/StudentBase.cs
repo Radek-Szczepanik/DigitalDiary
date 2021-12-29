@@ -4,7 +4,7 @@ namespace DigitalDiary
 {
     public abstract class StudentBase : IStudent
     {
-        public string Name { get; set; }
+        public string Name { get; set; } = "Radek";
 
         public StudentBase() { }
 
