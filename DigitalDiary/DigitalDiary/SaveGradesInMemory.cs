@@ -10,7 +10,7 @@ namespace DigitalDiary
     {
         public Dictionary<string, List<double>> studentGrades = new Dictionary<string, List<double>>()
         {
-            {"Radek", new List<double>() { } }
+           // {"Radek", new List<double>() { } }
         };
 
         public new event GradeAddedDelegate GradeAdded;

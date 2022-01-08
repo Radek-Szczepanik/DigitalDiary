@@ -1,10 +1,8 @@
-﻿using static DigitalDiary.SaveGradesInMemory;
-
-namespace DigitalDiary
+﻿namespace DigitalDiary
 {
     public abstract class StudentBase : IStudent
     {
-        public string Name { get; set; } = "Radek";
+        public string Name { get; set; }
 
         public StudentBase() { }
 

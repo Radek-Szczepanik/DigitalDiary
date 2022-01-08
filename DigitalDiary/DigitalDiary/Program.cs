@@ -6,7 +6,7 @@ namespace DigitalDiary
     {
         static void Main(string[] args)
         {
-            var saveGrades = new SaveGradesInMemory();
+            var saveGrades = new SaveGradesToFile();
             saveGrades.GradeAdded += OnGradeAdded;
             var statistics = new Statistics();
 
@@ -15,7 +15,7 @@ namespace DigitalDiary
                 try
                 {
                     saveGrades.AddStudent();
-                    Console.WriteLine("Enter grade");
+                    Console.WriteLine("Enter grade between 1 and 6");
                     Console.WriteLine("Press S to show statistics");
                 }
 
